@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import planixo from "../../assets/planixo-logo.png";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -42,19 +43,26 @@ const Navbar = () => {
               Contact Sales
             </a>
 
-            <a
-              href="#"
-              className="px-4 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-blue-100 transition"
+            <NavLink
+              to="/login"
+              className={({ isActive }) =>
+                `px-4 py-2 rounded-lg text-sm font-medium transition
+     ${
+       isActive ? "bg-blue-600 text-white" : "text-slate-700 hover:bg-blue-100"
+     }`
+              }
             >
               Login
-            </a>
+            </NavLink>
 
-            <a
-              href="#"
-              className="px-4 py-2 rounded-lg text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-cyan-500 hover:opacity-90 transition"
+            <NavLink
+              to="/signup"
+              className="px-4 py-2 rounded-lg text-sm font-semibold text-white 
+             bg-gradient-to-r from-blue-600 to-cyan-500 
+             hover:opacity-90 transition"
             >
               Sign Up
-            </a>
+            </NavLink>
           </div>
 
           {/* Mobile Menu Button */}

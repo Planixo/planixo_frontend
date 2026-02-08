@@ -3,7 +3,7 @@ import Landing from "./Routing/Landing";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import AdminLayout from "./components/Dashboard/Admin/AdminLayout";
-import MainDashboard from "./components/Dashboard/Admin/MainDashboard";
+
 
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
 
           {/* Admin dashboard */ }
          <Route path="/admin" element={<AdminLayout />}>
-           <Route index element={<MainDashboard />} />
+           {/* <Route index element={<MainDashboard />} /> */}
           
           </Route>
         </Routes>

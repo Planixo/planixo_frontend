@@ -14,73 +14,80 @@ import {
 export const sidebarItems = [
   {
     title: "Dashboard",
+    icon: LayoutDashboard,
     items: [
-      {
-        label: "Dashboard",
-        icon: LayoutDashboard,
-        path: "/admin/dashboard",
-      },
+      { label: "Dashboard", path: "/admin/dashboard" },
     ],
   },
   {
     title: "User Management",
+    icon: Users,
     items: [
-      { label: "All Users", icon: Users, path: "/admin/users" },
+      { label: "All Users", path: "/admin/users" },
       { label: "User Verification", path: "/admin/users/verify" },
       { label: "Login History", path: "/admin/users/logins" },
     ],
   },
   {
     title: "Roles & Permissions",
+    icon: Shield,
     items: [
-      { label: "Roles", icon: Shield, path: "/admin/roles" },
+      { label: "Roles", path: "/admin/roles" },
       { label: "RBAC Settings", path: "/admin/rbac" },
     ],
   },
   {
     title: "Projects",
+    icon: FolderKanban,
     items: [
-      { label: "All Projects", icon: FolderKanban, path: "/admin/projects" },
+      { label: "All Projects", path: "/admin/projects" },
       { label: "Project Status", path: "/admin/projects/status" },
     ],
   },
   {
     title: "System Monitoring",
+    icon: BarChart,
     items: [
-      { label: "Analytics", icon: BarChart, path: "/admin/analytics" },
+      { label: "Analytics", path: "/admin/analytics" },
       { label: "Error Logs", path: "/admin/logs/errors" },
       { label: "Performance", path: "/admin/performance" },
     ],
   },
   {
     title: "Notifications",
-    items: [{ label: "Alerts", icon: Bell, path: "/admin/alerts" }],
+    icon: Bell,
+    items: [
+      { label: "Alerts", path: "/admin/alerts" },
+    ],
   },
   {
     title: "Security",
+    icon: Lock,
     items: [
-      { label: "2FA & Access Logs", icon: Lock, path: "/admin/security" },
+      { label: "2FA & Access Logs", path: "/admin/security" },
     ],
   },
   {
     title: "Settings",
+    icon: Settings,
     items: [
-      { label: "System Settings", icon: Settings, path: "/admin/settings" },
+      { label: "System Settings", path: "/admin/settings" },
     ],
   },
   {
     title: "Reports",
+    icon: FileText,
     items: [
-      { label: "Audit Logs", icon: FileText, path: "/admin/audit-logs" },
+      { label: "Audit Logs", path: "/admin/audit-logs" },
       { label: "Export Reports", path: "/admin/reports" },
     ],
   },
   {
-    title: "",
+    title: "Logout",
+    icon: LogOut,
     items: [
       {
         label: "Logout",
-        icon: LogOut,
         path: "/logout",
         danger: true,
       },

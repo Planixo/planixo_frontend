@@ -5,8 +5,13 @@ import Login from "./components/landing/Login";
 import Signup from "./components/landing/Signup";
 import VerifyOtp from "./components/landing/VerifyOtp";
 
+<<<<<<< Updated upstream
 import DashboardLayout from "./Layout/DashboardLayout";
 import AdminDashboard from "./components/Dashboard/Admin/AdminDashboard";
+=======
+import AdminLayout from "./components/Dashboard/Admin/AdminLayout";
+
+>>>>>>> Stashed changes
 
 
 function App() {
@@ -33,8 +38,19 @@ function App() {
           {/* Employee Dashboard    */}
 
 
+<<<<<<< Updated upstream
       </Routes>
     </BrowserRouter>
+=======
+          {/* Admin dashboard */ }
+         <Route path="/admin" element={<AdminLayout />}>
+           {/* <Route index element={<MainDashboard />} /> */}
+          
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </>
+>>>>>>> Stashed changes
   );
 }
 

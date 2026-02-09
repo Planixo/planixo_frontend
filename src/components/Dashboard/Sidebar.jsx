@@ -28,7 +28,7 @@ const Sidebar = ({ sidebarItems }) => {
       </div>
 
       {/* Navigation */}
-      <nav className="flex flex-col gap-4 px-2 h-[calc(100vh-64px)] overflow-y-auto">
+      <nav className="flex flex-col gap-4 px-2 h-[calc(100vh-64px)] overflow-y-auto no-scrollbar">
         {sidebarItems.admin.map((section, idx) => {
           const SectionIcon = section.icon;
 
@@ -41,9 +41,10 @@ const Sidebar = ({ sidebarItems }) => {
                 `}
               >
                 {SectionIcon && (
-                  <SectionIcon size={20} className={`text-blue-600 ${
-                      section.danger ? "text-red-500" : "text-gray-700"
-                    } `} />
+                  <SectionIcon
+                    size={20}
+                    style={{ color: section.danger ? "#EF4444" : "#2468FC" }}
+                  />
                 )}
 
                 {!collapsed && section.title && (

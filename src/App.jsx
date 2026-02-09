@@ -6,7 +6,8 @@ import Signup from "./components/landing/Signup";
 import VerifyOtp from "./components/landing/VerifyOtp";
 
 import DashboardLayout from "./Layout/DashboardLayout";
-import MainDashboard from "./components/Dashboard/Admin/MainDashboard";
+import AdminDashboard from "./components/Dashboard/Admin/AdminDashboard";
+
 
 function App() {
  const [user,setUser]=useState({
@@ -26,8 +27,12 @@ function App() {
 
         {/* Admin Dashboard */}
         <Route path="/dashboard" element={<DashboardLayout />}>
-          <Route path="admin" element={<MainDashboard />} />
+          <Route path="admin" element={<AdminDashboard />} />
         </Route>
+             
+          {/* Employee Dashboard    */}
+
+
       </Routes>
     </BrowserRouter>
   );

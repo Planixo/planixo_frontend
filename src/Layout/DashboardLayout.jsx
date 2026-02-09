@@ -1,0 +1,29 @@
+
+import React from 'react'
+import Sidebar from '../components/Dashboard/Admin/Sidebar'
+import Header from '../components/Dashboard/Admin/Header'
+import { Outlet } from 'react-router-dom'
+
+import {sidebarItems} from "../../SidebarConfig"
+
+function DashboardLayout() {
+  return (
+    <div className="flex h-screen">
+         {/* Sidebar */}
+         <Sidebar sidebarItems={sidebarItems}/>
+   
+         {/* Right Content */}
+         <div className="flex flex-col flex-1">
+           {/* Header */}
+           <Header />
+   
+           {/* Page Content */}
+           <main className="flex-1 overflow-auto p-6 bg-gray-50">
+             <Outlet />
+           </main>
+         </div>
+       </div>
+  )
+}
+
+export default DashboardLayout

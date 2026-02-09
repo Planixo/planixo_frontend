@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Landing from "./Routing/Landing";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./components/landing/Login";
@@ -10,6 +10,10 @@ import MainDashboard from "./components/Dashboard/Admin/MainDashboard";
 
 
 function App() {
+ const [user,setUser]=useState({
+  name:"Rajpal",
+  role:"admin"
+ })
   return (
     <>
       <BrowserRouter>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Menu, ChevronLeft } from "lucide-react";
-import planixo from "../../../assets/planixo-logo.png";
+import planixo from "../../assets/planixo-logo.png";
 
 const Sidebar = ({ sidebarItems }) => {
   const [collapsed, setCollapsed] = useState(false);
@@ -16,11 +16,7 @@ const Sidebar = ({ sidebarItems }) => {
       {/* Top Section */}
       <div className="flex items-center justify-between px-4 py-4">
         {!collapsed && (
-          <img
-            src={planixo}
-            alt="Planixo Logo"
-            className="h-9 w-auto"
-          />
+          <img src={planixo} alt="Planixo Logo" className="h-9 w-auto" />
         )}
 
         <button
@@ -33,7 +29,7 @@ const Sidebar = ({ sidebarItems }) => {
 
       {/* Navigation */}
       <nav className="flex flex-col gap-4 px-2 h-[calc(100vh-64px)] overflow-y-auto">
-        {sidebarItems.map((section, idx) => {
+        {sidebarItems.admin.map((section, idx) => {
           const SectionIcon = section.icon;
 
           return (
@@ -45,11 +41,17 @@ const Sidebar = ({ sidebarItems }) => {
                 `}
               >
                 {SectionIcon && (
-                  <SectionIcon size={20} className="text-blue-600" />
+                  <SectionIcon size={20} className={`text-blue-600 ${
+                      section.danger ? "text-red-500" : "text-gray-700"
+                    } `} />
                 )}
 
                 {!collapsed && section.title && (
-                  <p className="text-[15px] font-semibold text-[#0F172A] uppercase">
+                  <p
+                    className={`text-[15px] font-semibold uppercase ${
+                      section.danger ? "text-red-500" : "text-gray-700"
+                    }`}
+                  >
                     {section.title}
                   </p>
                 )}
@@ -58,7 +60,7 @@ const Sidebar = ({ sidebarItems }) => {
               {/* Items — only when expanded */}
               {!collapsed && (
                 <div className="flex flex-col gap-1 ml-6 mt-1">
-                  {section.items.map((item, i) => (
+                  {section?.items?.map((item, i) => (
                     <div
                       key={i}
                       className={`px-4 py-2 rounded-xl cursor-pointer
@@ -66,9 +68,7 @@ const Sidebar = ({ sidebarItems }) => {
                         ${item.danger ? "text-red-500" : "text-gray-700"}
                       `}
                     >
-                      <span className="text-sm font-medium">
-                        {item.label}
-                      </span>
+                      <span className="text-sm font-medium">{item.label}</span>
                     </div>
                   ))}
                 </div>

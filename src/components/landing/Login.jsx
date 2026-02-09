@@ -55,7 +55,7 @@ export default function Login() {
           </div>
 
           {/* Button */}
-          <button className="w-full rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 py-2 text-white font-semibold hover:opacity-90 transition">
+          <button type="submit" className="w-full rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 py-2 text-white font-semibold hover:opacity-90 transition">
             Login
           </button>
         </form>

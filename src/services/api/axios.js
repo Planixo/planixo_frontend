@@ -1,8 +1,14 @@
 import axios from "axios";
 
+// ================= SMART BASE URL =================
+const BASE_URL =
+  import.meta.env.VITE_API_BASE_URL ||
+  "http://localhost:3000/api/v1";
+
+// ================= AXIOS INSTANCE =================
 const api = axios.create({
-  baseURL: "https://planixo-backend.onrender.com/api/v1",
-  withCredentials: true, // 🔥 REQUIRED for cookies
+  baseURL: BASE_URL,
+  withCredentials: true, // ✅ cookie-based auth
   headers: {
     "Content-Type": "application/json",
   },
@@ -14,26 +20,17 @@ api.interceptors.response.use(
   async (error) => {
     const originalRequest = error.config;
 
-    // Network / CORS error
     if (!originalRequest || !error.response) {
       return Promise.reject(error);
     }
 
-    // Prevent infinite loop
-    if (
-      error.response.status === 401 &&
-      !originalRequest._retry
-    ) {
+    if (error.response.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
 
       try {
-        // 🔁 Refresh access token via cookie
         await api.get("/auth/refresh-token");
-
-        // Retry original request
         return api(originalRequest);
       } catch (err) {
-        // ❌ Refresh failed → logout
         window.location.replace("/login");
         return Promise.reject(err);
       }

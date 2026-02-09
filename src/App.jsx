@@ -3,7 +3,9 @@ import Landing from "./Routing/Landing";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./components/landing/Login";
 import Signup from "./components/landing/Signup";
-import AdminLayout from "./components/Dashboard/Admin/AdminLayout";
+
+import DashboardLayout from "./Layout/DashboardLayout";
+import MainDashboard from "./components/Dashboard/Admin/MainDashboard";
 
 
 
@@ -19,8 +21,8 @@ function App() {
 
 
           {/* Admin dashboard */ }
-         <Route path="/admin" element={<AdminLayout />}>
-           {/* <Route index element={<MainDashboard />} /> */}
+         <Route path="/dashboard" element={<DashboardLayout />}>
+           <Route path="/dashboard/admin" element={<MainDashboard />} />
           
           </Route>
         </Routes>

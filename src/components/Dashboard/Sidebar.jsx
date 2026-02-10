@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Menu, ChevronLeft } from "lucide-react";
-import planixo from "../../../assets/planixo-logo.png";
+import planixo from "../../assets/planixo-logo.png";
 
 const Sidebar = ({ sidebarItems }) => {
   const [collapsed, setCollapsed] = useState(false);
@@ -28,39 +28,46 @@ const Sidebar = ({ sidebarItems }) => {
       </div>
 
       {/* Navigation */}
-      <nav className="flex flex-col gap-4 px-2 h-[calc(100vh-64px)] overflow-y-auto">
-        {sidebarItems.map((section, idx) => {
+      <nav className="flex flex-col gap-4 px-2 h-[calc(100vh-64px)] overflow-y-auto no-scrollbar">
+        {sidebarItems.admin.map((section, idx) => {
           const SectionIcon = section.icon;
 
           return (
             <div key={idx}>
               {/* Section Header */}
               <div
-                className={`flex items-center gap-2 px-3 py-2 rounded-lg
-            ${collapsed ? "justify-center" : ""}
-          `}
+                className={`flex items-center px-3 py-2 rounded-lg
+                  ${collapsed ? "justify-center" : "gap-2"}
+                `}
               >
                 {SectionIcon && (
-                  <SectionIcon size={20} className="text-blue-600" />
+                  <SectionIcon
+                    size={20}
+                    style={{ color: section.danger ? "#EF4444" : "#2468FC" }}
+                  />
                 )}
 
                 {!collapsed && section.title && (
-                  <p className="text-[15px] font-semibold text-[#0F172A] uppercase">
+                  <p
+                    className={`text-[15px] font-semibold uppercase ${
+                      section.danger ? "text-red-500" : "text-gray-700"
+                    }`}
+                  >
                     {section.title}
                   </p>
                 )}
               </div>
 
-              {/* Items — ONLY when expanded */}
+              {/* Items — only when expanded */}
               {!collapsed && (
-                <div className="flex flex-col gap-1 mt-1">
-                  {section.items.map((item, i) => (
+                <div className="flex flex-col gap-1 ml-6 mt-1">
+                  {section?.items?.map((item, i) => (
                     <div
                       key={i}
                       className={`px-4 py-2 rounded-xl cursor-pointer
-                  transition hover:bg-blue-100
-                  ${item.danger ? "text-red-500" : "text-gray-700"}
-                `}
+                        transition hover:bg-blue-100
+                        ${item.danger ? "text-red-500" : "text-gray-700"}
+                      `}
                     >
                       <span className="text-sm font-medium">{item.label}</span>
                     </div>

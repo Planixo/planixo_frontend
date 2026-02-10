@@ -9,13 +9,13 @@ import {
   Settings,
   FileText,
   LogOut,
-  // ClipboardList,
-  // CheckCircle,
-  // Clock,
-  // User,
-  // BarChart3,
-  // Calendar,
-  // Settings,
+  ClipboardList,
+  CheckCircle,
+  Clock,
+  User,
+  BarChart3,
+  Calendar,
+  
 } from "lucide-react";
 
 
@@ -50,7 +50,7 @@ export const sidebarItems = {
 
       items: [
         { label: "All Projects", path: "/admin/projects" },
-        ,
+        
         { label: "Project Status", path: "/admin/projects/status" },
       ],
     },
@@ -96,146 +96,146 @@ export const sidebarItems = {
     },
   ],
 
-  // employee: [
-  //   {
-  //     title: "Employee",
-  //     icon: User,
-  //     items: [
-  //       {
-  //         label: "Dashboard",
-  //         icon: LayoutDashboard,
-  //         path: "/employee/dashboard",
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     title: "Tasks",
-  //     icon: ClipboardList,
-  //     items: [
-  //       {
-  //         label: "My Tasks",
-  //         icon: ClipboardList,
-  //         path: "/employee/tasks",
-  //       },
-  //       {
-  //         label: "In Progress",
-  //         icon: Clock,
-  //         path: "/employee/tasks/in-progress",
-  //       },
-  //       {
-  //         label: "Completed Tasks",
-  //         icon: CheckCircle,
-  //         path: "/employee/tasks/completed",
-  //       },
-  //     ],
-  //   },
-  // ],
+  employee: [
+    {
+      title: "Employee",
+      icon: User,
+      items: [
+        {
+          label: "Dashboard",
+          icon: LayoutDashboard,
+          path: "/employee/dashboard",
+        },
+      ],
+    },
+    {
+      title: "Tasks",
+      icon: ClipboardList,
+      items: [
+        {
+          label: "My Tasks",
+          icon: ClipboardList,
+          path: "/employee/tasks",
+        },
+        {
+          label: "In Progress",
+          icon: Clock,
+          path: "/employee/tasks/in-progress",
+        },
+        {
+          label: "Completed Tasks",
+          icon: CheckCircle,
+          path: "/employee/tasks/completed",
+        },
+      ],
+    },
+  ],
 
-  // projectmanager: [
-  //   {
-  //     title: "Project Manager",
-  //     icon: LayoutDashboard,
-  //     items: [
-  //       {
-  //         label: "Dashboard",
-  //         path: "/pm/dashboard",
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     title: "Project Execution",
-  //     icon: ClipboardList,
-  //     items: [
-  //       {
-  //         label: "All Projects",
-  //         path: "/pm/projects",
-  //       },
-  //       {
-  //         label: "Create Project",
-  //         path: "/pm/projects/create",
-  //       },
-  //       {
-  //         label: "Milestones",
-  //         path: "/pm/milestones",
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     title: "Task Management",
-  //     icon: CheckCircle,
-  //     items: [
-  //       {
-  //         label: "Assign Tasks",
-  //         path: "/pm/tasks/assign",
-  //       },
-  //       {
-  //         label: "Task Board",
-  //         path: "/pm/tasks",
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     title: "Team",
-  //     icon: Users,
-  //     items: [
-  //       {
-  //         label: "Team Members",
-  //         path: "/pm/team",
-  //       },
-  //       {
-  //         label: "Workload",
-  //         path: "/pm/workload",
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     title: "Tracking & Reports",
-  //     icon: BarChart3,
-  //     items: [
-  //       {
-  //         label: "Progress Tracking",
-  //         path: "/pm/progress",
-  //       },
-  //       {
-  //         label: "Reports",
-  //         path: "/pm/reports",
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     title: "Schedule",
-  //     icon: Calendar,
-  //     items: [
-  //       {
-  //         label: "Timeline",
-  //         path: "/pm/timeline",
-  //       },
-  //       {
-  //         label: "Meetings",
-  //         path: "/pm/meetings",
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     title: "Notifications",
-  //     icon: Bell,
-  //     items: [
-  //       {
-  //         label: "Alerts",
-  //         path: "/pm/alerts",
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     title: "Settings",
-  //     icon: Settings,
-  //     items: [
-  //       {
-  //         label: "Profile Settings",
-  //         path: "/pm/settings",
-  //       },
-  //     ],
-  //   },
-  // ],
+  projectmanager: [
+    {
+      title: "Project Manager",
+      icon: LayoutDashboard,
+      items: [
+        {
+          label: "Dashboard",
+          path: "/pm/dashboard",
+        },
+      ],
+    },
+    {
+      title: "Project Execution",
+      icon: ClipboardList,
+      items: [
+        {
+          label: "All Projects",
+          path: "/pm/projects",
+        },
+        {
+          label: "Create Project",
+          path: "/pm/projects/create",
+        },
+        {
+          label: "Milestones",
+          path: "/pm/milestones",
+        },
+      ],
+    },
+    {
+      title: "Task Management",
+      icon: CheckCircle,
+      items: [
+        {
+          label: "Assign Tasks",
+          path: "/pm/tasks/assign",
+        },
+        {
+          label: "Task Board",
+          path: "/pm/tasks",
+        },
+      ],
+    },
+    {
+      title: "Team",
+      icon: Users,
+      items: [
+        {
+          label: "Team Members",
+          path: "/pm/team",
+        },
+        {
+          label: "Workload",
+          path: "/pm/workload",
+        },
+      ],
+    },
+    {
+      title: "Tracking & Reports",
+      icon: BarChart3,
+      items: [
+        {
+          label: "Progress Tracking",
+          path: "/pm/progress",
+        },
+        {
+          label: "Reports",
+          path: "/pm/reports",
+        },
+      ],
+    },
+    {
+      title: "Schedule",
+      icon: Calendar,
+      items: [
+        {
+          label: "Timeline",
+          path: "/pm/timeline",
+        },
+        {
+          label: "Meetings",
+          path: "/pm/meetings",
+        },
+      ],
+    },
+    {
+      title: "Notifications",
+      icon: Bell,
+      items: [
+        {
+          label: "Alerts",
+          path: "/pm/alerts",
+        },
+      ],
+    },
+    {
+      title: "Settings",
+      icon: Settings,
+      items: [
+        {
+          label: "Profile Settings",
+          path: "/pm/settings",
+        },
+      ],
+    },
+  ],
 };
 

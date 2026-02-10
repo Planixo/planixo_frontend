@@ -4,21 +4,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./components/landing/Login";
 import Signup from "./components/landing/Signup";
 import VerifyOtp from "./components/landing/VerifyOtp";
-
-<<<<<<< Updated upstream
 import DashboardLayout from "./Layout/DashboardLayout";
-import AdminDashboard from "./components/Dashboard/Admin/AdminDashboard";
-=======
-import AdminLayout from "./components/Dashboard/Admin/AdminLayout";
-
->>>>>>> Stashed changes
-
-
-function App() {
- const [user,setUser]=useState({
-  name:"Rajpal",
-  role:"admin"
- })
+import AdminDashboard from "../src/components/Dashboard/Admin/AdminDashboard"
+import EmployeeDashboard from "./components/Dashboard/Employee/EmployeeDashboard";
+import ProjectManagerDashboard from "./components/Dashboard/ProjectManager/ProjectManagerDashboard";
+export default function App() {
   return (
     <BrowserRouter>
       <Routes>
@@ -34,24 +24,19 @@ function App() {
         <Route path="/dashboard" element={<DashboardLayout />}>
           <Route path="admin" element={<AdminDashboard />} />
         </Route>
-             
-          {/* Employee Dashboard    */}
+
+           {/* project manager dashboard */}
+           <Route path="/dashboard" element={<DashboardLayout />}>
+          <Route path="projectmanager" element={<ProjectManagerDashboard/>} />
+        </Route>
+
+        {/* Employee Dashboard    */}
+         <Route path="/dashboard" element={<DashboardLayout />}>
+          <Route path="employee" element={<EmployeeDashboard />} />
+        </Route>
 
 
-<<<<<<< Updated upstream
       </Routes>
     </BrowserRouter>
-=======
-          {/* Admin dashboard */ }
-         <Route path="/admin" element={<AdminLayout />}>
-           {/* <Route index element={<MainDashboard />} /> */}
-          
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </>
->>>>>>> Stashed changes
   );
 }
-
-export default App;

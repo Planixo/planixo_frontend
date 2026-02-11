@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import api from "../../services/api/axios" // 👈 interceptor instance
+import api from "../../services/api/axios";
 import bgImage from "../../assets/herobackground.png";
 
 export default function Login() {
@@ -11,6 +11,7 @@ export default function Login() {
     password: "",
   });
 
+  const [remember, setRemember] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -27,6 +28,11 @@ export default function Login() {
     e.preventDefault();
     setError("");
 
+    if (!remember) {
+      setError("Please accept terms before logging in.");
+      return;
+    }
+
     try {
       setLoading(true);
 
@@ -35,8 +41,8 @@ export default function Login() {
         password: formData.password,
       });
 
-      // ✅ Cookies are already set by backend
-      navigate("/dashboard"); // change route if needed
+      // ✅ Backend sets cookies automatically
+      navigate("/dashboard/admin"); // You can adjust route if needed
     } catch (err) {
       setError(err.response?.data?.message || "Login failed");
     } finally {
@@ -49,8 +55,10 @@ export default function Login() {
       className="min-h-screen flex items-center justify-center bg-cover bg-center relative"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
+      {/* Overlay */}
       <div className="absolute inset-0 bg-black/50"></div>
 
+      {/* Card */}
       <div className="relative z-10 w-full max-w-md rounded-2xl bg-white/90 backdrop-blur-xl shadow-2xl p-8">
         <h2 className="text-3xl font-bold text-center text-gray-800">
           Welcome Back
@@ -98,26 +106,48 @@ export default function Login() {
             />
           </div>
 
-          {/* Remember + Forgot */}
-          <div className="flex justify-between text-sm">
-            <label className="flex items-center gap-2 text-gray-600">
-              <input type="checkbox" disabled />
-              Remember me
+          {/* Remember Me + Forgot */}
+          <div className="flex justify-between items-center text-sm">
+            <label className="flex items-center gap-2 text-gray-600 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={remember}
+                onChange={() => setRemember(!remember)}
+                className="accent-blue-600 cursor-pointer"
+              />
+              Accept Terms & Conditions
             </label>
-            <a href="/forgot-password" className="text-blue-600 hover:underline">
+
+            <a
+              href="/forgot-password"
+              className="text-blue-600 hover:underline"
+            >
               Forgot password?
             </a>
           </div>
 
-          {/* Button */}
-          <button className="w-full rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 py-2 text-white font-semibold hover:opacity-90 transition">
-            Login
+          {/* Login Button */}
+          <button
+            type="submit"
+            disabled={loading || !remember}
+            className={`w-full rounded-xl py-2 text-white font-semibold transition
+              ${
+                loading || !remember
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-gradient-to-r from-blue-600 to-cyan-500 hover:opacity-90"
+              }
+            `}
+          >
+            {loading ? "Logging in..." : "Login"}
           </button>
         </form>
 
         <p className="mt-6 text-center text-sm text-gray-600">
           Don’t have an account?{" "}
-          <a href="/signup" className="text-blue-600 font-semibold hover:underline">
+          <a
+            href="/signup"
+            className="text-blue-600 font-semibold hover:underline"
+          >
             Sign up
           </a>
         </p>

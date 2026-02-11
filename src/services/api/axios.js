@@ -1,14 +1,13 @@
 import axios from "axios";
 
-// ================= SMART BASE URL =================
+// ================= BASE URL =================
 const BASE_URL =
-  import.meta.env.VITE_API_BASE_URL ||
-  "http://localhost:3000/api/v1";
+  import.meta.env.VITE_API_BASE_URL || "http://localhost:3000";
 
 // ================= AXIOS INSTANCE =================
 const api = axios.create({
-  baseURL: BASE_URL,
-  withCredentials: true, // ✅ cookie-based auth
+  baseURL: `${BASE_URL}/api/v1`, // ✅ Always attach /api/v1 here
+  withCredentials: true,
   headers: {
     "Content-Type": "application/json",
   },

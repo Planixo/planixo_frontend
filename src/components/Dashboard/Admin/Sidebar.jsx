@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { Menu, ChevronLeft } from "lucide-react";
 <<<<<<< Updated upstream:src/components/Dashboard/Admin/Sidebar.jsx
+<<<<<<< Updated upstream:src/components/Dashboard/Admin/Sidebar.jsx
 import planixo from "../../../assets/planixo-logo.png";
 =======
+=======
+>>>>>>> Stashed changes:src/components/Dashboard/Sidebar.jsx
 import { useNavigate, useLocation } from "react-router-dom";
 import planixo from "../../assets/planixo-logo.png";
 >>>>>>> Stashed changes:src/components/Dashboard/Sidebar.jsx
@@ -66,6 +69,7 @@ const Sidebar = ({ sidebarItems }) => {
               {!collapsed && (
                 <div className="flex flex-col gap-1 ml-6 mt-1">
 <<<<<<< Updated upstream:src/components/Dashboard/Admin/Sidebar.jsx
+<<<<<<< Updated upstream:src/components/Dashboard/Admin/Sidebar.jsx
                   {section.items.map((item, i) => (
                     <div
                       key={i}
@@ -80,6 +84,8 @@ const Sidebar = ({ sidebarItems }) => {
                     </div>
                   ))}
 =======
+=======
+>>>>>>> Stashed changes:src/components/Dashboard/Sidebar.jsx
                   {section?.items?.map((item, i) => {
                     const isActive = location.pathname === item.path;
 
@@ -102,6 +108,9 @@ const Sidebar = ({ sidebarItems }) => {
                       </div>
                     );
                   })}
+<<<<<<< Updated upstream:src/components/Dashboard/Admin/Sidebar.jsx
+>>>>>>> Stashed changes:src/components/Dashboard/Sidebar.jsx
+=======
 >>>>>>> Stashed changes:src/components/Dashboard/Sidebar.jsx
                 </div>
               )}

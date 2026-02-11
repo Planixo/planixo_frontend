@@ -1,6 +1,9 @@
 import React from "react";
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import Landing from "./Routing/Landing";
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -12,10 +15,13 @@ import VerifyOtp from "./components/landing/VerifyOtp";
 
 import DashboardLayout from "./Layout/DashboardLayout";
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import MainDashboard from "./components/Dashboard/Admin/MainDashboard";
 
 function App() {
 =======
+=======
+>>>>>>> Stashed changes
 import AdminDashboard from "./components/Dashboard/Admin/AdminDashboard";
 import EmployeeDashboard from "./components/Dashboard/Employee/EmployeeDashboard";
 import ProjectManagerDashboard from "./components/Dashboard/ProjectManager/ProjectManagerDashboard";
@@ -37,9 +43,12 @@ export default function App() {
         {/* ================= DASHBOARD WRAPPER ================= */}
         <Route path="/dashboard" element={<DashboardLayout />}>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
           <Route path="admin" element={<MainDashboard />} />
         </Route>
 =======
+=======
+>>>>>>> Stashed changes
 
           {/* ADMIN */}
           <Route path="admin" element={<AdminDashboard />} />
@@ -50,6 +59,12 @@ export default function App() {
 
           {/* EMPLOYEE */}
           <Route path="employee" element={<EmployeeDashboard />} />
+<<<<<<< Updated upstream
+
+        </Route>
+
+>>>>>>> Stashed changes
+=======
 
         </Route>
 

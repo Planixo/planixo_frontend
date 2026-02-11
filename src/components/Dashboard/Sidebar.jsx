@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { Menu, ChevronLeft } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
 import planixo from "../../assets/planixo-logo.png";
 
 const Sidebar = ({ sidebarItems }) => {
   const [collapsed, setCollapsed] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <aside
@@ -58,20 +61,31 @@ const Sidebar = ({ sidebarItems }) => {
                 )}
               </div>
 
-              {/* Items — only when expanded */}
+              {/* Items */}
               {!collapsed && (
                 <div className="flex flex-col gap-1 ml-6 mt-1">
-                  {section?.items?.map((item, i) => (
-                    <div
-                      key={i}
-                      className={`px-4 py-2 rounded-xl cursor-pointer
-                        transition hover:bg-blue-100
-                        ${item.danger ? "text-red-500" : "text-gray-700"}
-                      `}
-                    >
-                      <span className="text-sm font-medium">{item.label}</span>
-                    </div>
-                  ))}
+                  {section?.items?.map((item, i) => {
+                    const isActive = location.pathname === item.path;
+
+                    return (
+                      <div
+                        key={i}
+                        onClick={() => navigate(item.path)}
+                        className={`px-4 py-2 rounded-xl cursor-pointer
+                          transition
+                          ${
+                            isActive
+                              ? "bg-blue-600 text-white"
+                              : "hover:bg-blue-100 text-gray-700"
+                          }
+                        `}
+                      >
+                        <span className="text-sm font-medium">
+                          {item.label}
+                        </span>
+                      </div>
+                    );
+                  })}
                 </div>
               )}
             </div>

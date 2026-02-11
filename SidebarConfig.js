@@ -15,23 +15,21 @@ import {
   User,
   BarChart3,
   Calendar,
-  
 } from "lucide-react";
-
 
 export const sidebarItems = {
   admin: [
     {
       title: "Dashboard",
       icon: LayoutDashboard,
-      path: "/admin/dashboard",
+      path: "/dashboard/admin",
     },
     {
       title: "User Management",
       icon: Users,
       items: [
-        { label: "All Users", path: "/admin/users" },
-        { label: "User Verification", path: "/admin/users/verify" },
+        { label: "All Users", path: "/dashboard/users" }, // ✅ FIXED
+        { label: "All Teams", path: "/admin/users/teams" },
         { label: "Login History", path: "/admin/users/logins" },
       ],
     },
@@ -40,17 +38,14 @@ export const sidebarItems = {
       icon: Shield,
       items: [
         { label: "Roles", path: "/admin/roles" },
-
         { label: "RBAC Settings", path: "/admin/rbac" },
       ],
     },
     {
       title: "Projects",
       icon: FolderKanban,
-
       items: [
         { label: "All Projects", path: "/admin/projects" },
-        
         { label: "Project Status", path: "/admin/projects/status" },
       ],
     },
@@ -59,7 +54,6 @@ export const sidebarItems = {
       icon: BarChart,
       items: [
         { label: "Analytics", path: "/admin/analytics" },
-
         { label: "Error Logs", path: "/admin/logs/errors" },
         { label: "Performance", path: "/admin/performance" },
       ],
@@ -82,7 +76,6 @@ export const sidebarItems = {
     {
       title: "Reports",
       icon: FileText,
-
       items: [
         { label: "Audit Logs", path: "/admin/audit-logs" },
         { label: "Export Reports", path: "/admin/reports" },
@@ -104,7 +97,7 @@ export const sidebarItems = {
         {
           label: "Dashboard",
           icon: LayoutDashboard,
-          path: "/employee/dashboard",
+          path: "/dashboard/employee",
         },
       ],
     },
@@ -138,7 +131,7 @@ export const sidebarItems = {
       items: [
         {
           label: "Dashboard",
-          path: "/pm/dashboard",
+          path: "/dashboard/projectmanager",
         },
       ],
     },
@@ -238,4 +231,3 @@ export const sidebarItems = {
     },
   ],
 };
-

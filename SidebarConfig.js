@@ -29,7 +29,7 @@ export const sidebarItems = {
       icon: Users,
       items: [
         { label: "All Users", path: "/dashboard/users" }, // ✅ FIXED
-        { label: "All Teams", path: "/admin/users/teams" },
+        { label: "All Teams", path: "/dashboard/teams" },
         { label: "Login History", path: "/admin/users/logins" },
       ],
     },

@@ -15,6 +15,7 @@ import AdminDashboard from "./components/Dashboard/Admin/AdminDashboard";
 import EmployeeDashboard from "./components/Dashboard/Employee/EmployeeDashboard";
 import ProjectManagerDashboard from "./components/Dashboard/ProjectManager/ProjectManagerDashboard";
 import AllUsers from "./pages/AllUsers";
+import AllTeams from "./pages/AllTeams";
 
 export default function App() {
   return (
@@ -32,6 +33,7 @@ export default function App() {
           {/* ADMIN */}
           <Route path="admin" element={<AdminDashboard />} />
           <Route path="users" element={<AllUsers />} />
+          <Route path="teams" element={<AllTeams />} />
 
           {/* PROJECT MANAGER */}
           <Route

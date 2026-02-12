@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import api from "../../services/api/axios";
 import bgImage from "../../assets/herobackground.png";
 
@@ -41,8 +41,8 @@ export default function Login() {
         password: formData.password,
       });
 
-      // ✅ Backend sets cookies automatically
-      navigate("/dashboard/admin"); // You can adjust route if needed
+      // Backend sets cookies automatically
+      navigate("/dashboard/admin"); 
     } catch (err) {
       setError(err.response?.data?.message || "Login failed");
     } finally {
@@ -106,7 +106,7 @@ export default function Login() {
             />
           </div>
 
-          {/* Remember Me + Forgot */}
+          {/* Terms + Forgot */}
           <div className="flex justify-between items-center text-sm">
             <label className="flex items-center gap-2 text-gray-600 cursor-pointer">
               <input
@@ -118,12 +118,12 @@ export default function Login() {
               Accept Terms & Conditions
             </label>
 
-            <a
-              href="/forgot-password"
+            <Link
+              to="/forgot-password"
               className="text-blue-600 hover:underline"
             >
               Forgot password?
-            </a>
+            </Link>
           </div>
 
           {/* Login Button */}
@@ -142,14 +142,15 @@ export default function Login() {
           </button>
         </form>
 
+        {/* Signup Navigation */}
         <p className="mt-6 text-center text-sm text-gray-600">
           Don’t have an account?{" "}
-          <a
-            href="/signup"
+          <Link
+            to="/signup"
             className="text-blue-600 font-semibold hover:underline"
           >
             Sign up
-          </a>
+          </Link>
         </p>
       </div>
     </div>

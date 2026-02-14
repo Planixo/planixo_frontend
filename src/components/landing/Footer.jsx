@@ -2,6 +2,13 @@ import { Facebook, Twitter, Linkedin } from "lucide-react";
 import planixo from "../../assets/planixo-logo.png";
 
 const Footer = () => {
+  // Define social links with their respective URLs
+  const socialLinks = [
+    { Icon: Facebook, url: "https://www.facebook.com", label: "Facebook" },
+    { Icon: Twitter, url: "https://www.twitter.com", label: "Twitter" },
+    { Icon: Linkedin, url: "https://www.linkedin.com", label: "Linkedin" },
+  ];
+
   return (
     <footer className="bg-blue-100 text-slate-800 pt-14 sm:pt-16 pb-8 sm:pb-10">
       
@@ -18,7 +25,7 @@ const Footer = () => {
             />
           </div>
 
-          {/* Footer Links */}
+          {/* Footer Links - FIXED THE DOUBLE RENDER HERE */}
           {[
             ["Company", ["About Us", "Leadership", "Careers", "Security", "News"]],
             ["Products", ["Desk", "Chat", "Workspaces", "Integrations", "API"]],
@@ -56,12 +63,15 @@ const Footer = () => {
 
           {/* Social icons */}
           <div className="flex gap-3">
-            {[Facebook, Twitter, Linkedin].map((Icon, index) => (
+            {socialLinks.map(({ Icon, url, label }, index) => (
               <a
                 key={index}
-                href="#"
-                aria-label="Social link"
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
                 className="
+                  group
                   p-2 rounded-full bg-white
                   shadow
                   transition
@@ -71,7 +81,7 @@ const Footer = () => {
               >
                 <Icon
                   size={18}
-                  className="text-blue-600 transition hover:text-white"
+                  className="text-blue-600 transition group-hover:text-white"
                 />
               </a>
             ))}

@@ -106,7 +106,7 @@ const TeamCollaboration = () => {
           <ChevronRight />
         </button>
 
-        {/* Cards */}
+        {/* Cards Container */}
         <div
           ref={scrollRef}
           onMouseEnter={() => setPaused(true)}
@@ -115,8 +115,9 @@ const TeamCollaboration = () => {
             flex gap-5 sm:gap-6 lg:gap-8
             overflow-x-auto
             px-4 sm:px-6
-            scrollbar-hide scroll-smooth
+            scroll-smooth
             touch-pan-x
+            no-scrollbar 
           "
         >
           {teams.map((team, index) => (
@@ -161,4 +162,3 @@ const TeamCollaboration = () => {
 };
 
 export default TeamCollaboration;
-

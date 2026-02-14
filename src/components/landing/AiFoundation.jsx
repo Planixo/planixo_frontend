@@ -29,32 +29,15 @@ export default function AiFoundation() {
   const [active, setActive] = useState(null);
 
   return (
-    <section className="w-full py-10 bg-[#F7FAFF]">
+    <section className="w-full py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Heading */}
-        <div className="mb-16 max-w-3xl">
-          <span className="text-blue-600 font-semibold">
-            AI-first foundation
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-[#0F172A] mt-4">
-            One open, connected, and{" "}
-            <span className="text-blue-600">context-aware</span> foundation
-          </h2>
-          <p className="text-slate-600 mt-4">
-            Built to give AI full context across people, data, and workflows.
-          </p>
-        </div>
+        
 
-        {/* Cards Wrapper */}
-        <div
-          className="
-            flex flex-col gap-6
-            md:flex-row md:overflow-x-auto md:pb-4
-            lg:overflow-visible
-            lg:h-[300px]
-          "
-        >
+        {/* Cards */}
+        <div className="flex flex-col lg:flex-row gap-6">
+
           {cards.map((card, index) => {
             const isActive = active === index;
 
@@ -64,88 +47,88 @@ export default function AiFoundation() {
                 onMouseEnter={() => setActive(index)}
                 onMouseLeave={() => setActive(null)}
                 animate={{
-                  flex: isActive ? 2 : 1,
-                  backgroundColor: isActive ? "#0F172A" : "#E0E8F1",
+                  flex: isActive ? 1.3 : 1,
                 }}
-                transition={{ duration: 0.45, ease: "easeInOut" }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
                 className="
-                  relative rounded-3xl border border-[#E5ECFF]
-                  p-8 cursor-pointer overflow-hidden
-                  shadow-sm hover:shadow-xl
-                  min-h-[260px]
-                  md:min-w-[320px]
-                  lg:min-w-0
+                  relative
+                  rounded-2xl
+                  overflow-hidden
+                  shadow-lg
+                  hover:shadow-2xl
+                  cursor-pointer
+                  min-h-[480px]
+                  group
                 "
               >
-                {/* Subtle Glow */}
-                {isActive && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="absolute inset-0 bg-blue-500/30 pointer-events-none"
+                {/* Background Image */}
+                <div className="absolute inset-0">
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                )}
+                  {/* Gradient Overlay */}
+                  <motion.div
+                    animate={{
+                      background: isActive 
+                        ? "linear-gradient(to top, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.75) 60%, rgba(15, 23, 42, 0.3) 100%)"
+                        : "linear-gradient(to top, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.5) 60%, rgba(15, 23, 42, 0.2) 100%)"
+                    }}
+                    transition={{ duration: 0.4 }}
+                    className="absolute inset-0"
+                  />
+                </div>
 
                 {/* Content */}
-                <h3
-                  className={`text-2xl font-semibold mb-3 transition-colors ${
-                    isActive ? "text-white" : "text-[#0F172A]"
-                  }`}
-                >
-                  {card.title}
-                </h3>
+                <div className="relative h-full flex flex-col justify-end p-8 z-10">
+                  
+                  <motion.div
+                    animate={{
+                      y: isActive ? -10 : 0,
+                    }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    <h3 className="text-3xl font-bold text-white mb-4">
+                      {card.title}
+                    </h3>
 
-                <p
-                  className={`transition-colors ${
-                    isActive ? "text-slate-300" : "text-slate-600"
-                  }`}
-                >
-                  {card.desc}
-                </p>
+                    <p className="text-slate-200 text-base leading-relaxed">
+                      {card.desc}
+                    </p>
 
-                {/* Extra content */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{
-                    opacity: isActive ? 1 : 0,
-                    y: isActive ? 0 : 20,
-                  }}
-                  transition={{ duration: 0.4 }}
-                  className={`mt-6 text-sm transition-colors ${
-                    isActive ? "text-slate-400" : "text-slate-500"
-                  }`}
-                >
-                  {card.extra}
-                </motion.div>
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{
+                        opacity: isActive ? 1 : 0,
+                        height: isActive ? "auto" : 0,
+                      }}
+                      transition={{ duration: 0.4 }}
+                      className="overflow-hidden"
+                    >
+                      <p className="mt-4 text-sm text-slate-300 leading-relaxed border-t border-slate-600 pt-4">
+                        {card.extra}
+                      </p>
+                    </motion.div>
+                  </motion.div>
 
-                {/* Image */}
-                <img
-                  src={card.image}
-                  alt={card.title}
-                  className={`
-                    absolute bottom-6 right-6
-                    w-28 h-28 md:w-36 md:h-36
-                    object-cover rounded-2xl
-                    transition-all duration-500
-                    ${isActive ? "opacity-30 scale-105" : "opacity-80"}
-                  `}
-                />
+                  {/* Decorative Element */}
+                  <motion.div
+                    animate={{
+                      width: isActive ? "60px" : "40px",
+                    }}
+                    transition={{ duration: 0.4 }}
+                    className="h-1 bg-blue-500 mt-6 rounded-full"
+                  />
+                  
+                </div>
 
-                {/* Accent Line */}
-                <motion.div
-                  animate={{
-                    width: isActive ? "100%" : "40%",
-                  }}
-                  transition={{ duration: 0.5 }}
-                  className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-sky-400 to-blue-500"
-                />
               </motion.div>
             );
           })}
+
         </div>
       </div>
     </section>
   );
 }
-
-

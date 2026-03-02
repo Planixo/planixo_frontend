@@ -3,24 +3,24 @@ import { useState } from "react";
 
 const cards = [
   {
-    title: "Open Ecosystem",
-    desc: "Connect tools, teams, and AI models with powerful APIs and integrations.",
+    title: "Smart Team Collaboration",
+    desc: "Bring teams, managers, and stakeholders into one collaborative workspace.",
     extra:
-      "Supports automation, third-party tools, and scalable extensions across your workflow.",
+      "Enable role-based access, real-time updates, team chat, and AI-powered task suggestions for faster execution.",
     image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c",
   },
   {
-    title: "Unified Data",
-    desc: "One shared data layer across tasks, people, and timelines.",
+    title: "Centralized Project Tracking",
+    desc: "Manage tasks, deadlines, and progress from one unified dashboard.",
     extra:
-      "Ensures AI has full context to generate insights, predictions, and actions.",
+      "Track milestones, monitor performance, visualize timelines, and reduce delays using predictive analytics.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
   },
   {
-    title: "Infinite Knowledge",
-    desc: "Your system learns continuously from projects and decisions.",
+    title: "AI Workflow Automation",
+    desc: "Automate repetitive project tasks and optimize resource allocation.",
     extra:
-      "Improves recommendations, planning accuracy, and execution over time.",
+      "AI analyzes workload, predicts risks, suggests improvements, and helps teams deliver projects faster.",
     image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d",
   },
 ];
@@ -33,11 +33,19 @@ export default function AiFoundation() {
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Heading */}
-        
+        <div className="max-w-3xl mb-14">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
+            Intelligent Project Management Platform
+          </h2>
+
+          <p className="mt-6 text-lg text-slate-600 leading-relaxed">
+            Plan smarter, collaborate faster, and deliver projects on time with
+            AI-powered insights, automation, and real-time team coordination.
+          </p>
+        </div>
 
         {/* Cards */}
         <div className="flex flex-col lg:flex-row gap-6">
-
           {cards.map((card, index) => {
             const isActive = active === index;
 
@@ -68,7 +76,7 @@ export default function AiFoundation() {
                     alt={card.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  {/* Gradient Overlay */}
+                  
                   <motion.div
                     animate={{
                       background: isActive 
@@ -112,7 +120,6 @@ export default function AiFoundation() {
                     </motion.div>
                   </motion.div>
 
-                  {/* Decorative Element */}
                   <motion.div
                     animate={{
                       width: isActive ? "60px" : "40px",
@@ -126,7 +133,6 @@ export default function AiFoundation() {
               </motion.div>
             );
           })}
-
         </div>
       </div>
     </section>

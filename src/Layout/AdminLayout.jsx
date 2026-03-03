@@ -1,8 +1,15 @@
 import React from 'react'
+import AdminDashboard from '../pages/AdminDashboard'
+import AdminSidebar from '../pages/AdminSidebar'
 
 function AdminLayout() {
   return (
-    <div>AdminLayout</div>
+    <>
+      <AdminSidebar />
+      <AdminDashboard />
+      
+      
+    </>
   )
 }
 

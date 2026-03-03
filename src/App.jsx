@@ -11,11 +11,13 @@ import VerifyOtp from "./components/landing/VerifyOtp";
 import DashboardLayout from "./Layout/DashboardLayout";
 
 // Dashboard Pages
-import AdminDashboard from "./components/Dashboard/Admin/AdminDashboard";
+
 import EmployeeDashboard from "./components/Dashboard/Employee/EmployeeDashboard";
 import ProjectManagerDashboard from "./components/Dashboard/ProjectManager/ProjectManagerDashboard";
 import AllUsers from "./pages/AllUsers";
 import AllTeams from "./pages/AllTeams";
+
+import AdminLayout from "./Layout/AdminLayout";
 
 export default function App() {
   return (
@@ -29,9 +31,11 @@ export default function App() {
 
         {/* ================= DASHBOARD WRAPPER ================= */}
         <Route path="/dashboard" element={<DashboardLayout />}>
+          </Route>
+        
 
           {/* ADMIN */}
-          <Route path="admin" element={<AdminDashboard />} />
+        <Route path="/admin" element={<AdminLayout />} />
           <Route path="users" element={<AllUsers />} />
           <Route path="teams" element={<AllTeams />} />
 
@@ -44,7 +48,6 @@ export default function App() {
           {/* EMPLOYEE */}
           <Route path="employee" element={<EmployeeDashboard />} />
 
-        </Route>
       </Routes>
     </BrowserRouter>
   );
